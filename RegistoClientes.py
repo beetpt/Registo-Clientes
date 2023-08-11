@@ -76,13 +76,13 @@ def salvar_cliente():
     contacto = entry_contacto.get()
     email = entry_email.get()
 
-    with open('D:\Python\Registo Clientes CTk\clientes.csv', 'a', newline='', encoding="utf-8-sig") as file:
+    with open('clientes.csv', 'a', newline='', encoding="utf-8-sig") as file:
         writer      = csv.writer(file)
         if file.tell() == 0:
             writer.writerow(['Nº Cliente', 'Nome', 'Morada', 'Código Postal', 'Localidade', 'Nº Contribuinte', 'Contacto', 'E-mail'])
             num_cliente     = 1
         else:
-            with open('D:\Python\Registo Clientes CTk\clientes.csv', 'r') as f:
+            with open('clientes.csv', 'r') as f:
                 reader = csv.reader(f)
                 last_row = list(reader)[-1]
                 num_cliente = int(last_row[0]) + 1
@@ -106,7 +106,7 @@ entry_email = None
 janela_principal = ctk.CTk()
 janela_principal.title("Menu Clientes")
 janela_principal.geometry("400x350")
-janela_principal.iconbitmap("D:\Python\Registo Clientes CTk\icons8-scroll-emoji-96.ico")
+janela_principal.iconbitmap("icons8-scroll-emoji-96.ico")
 
 #Definir Butões
 def button_nome():
@@ -127,7 +127,7 @@ def procurar_cliente():
     procurar_cliente_nome = simpledialog.askstring("Procurar Cliente", "Insira o nome do cliente:")
     
     # Read the data from the CSV file
-    with open('D:\Python\Registo Clientes CTk\clientes.csv', 'r', encoding="utf-8-sig") as file:
+    with open('clientes.csv', 'r', encoding="utf-8-sig") as file:
         reader = csv.reader(file)
         header = next(reader)
         data = list(reader)
@@ -158,7 +158,7 @@ def procurar_cliente_contribuinte():
     procurar_cliente_contribuinte = simpledialog.askstring("Procurar Cliente", "Insira o Nº Contribuinte:")
     
     # Read the data from the CSV file
-    with open('D:\Python\Registo Clientes CTk\clientes.csv', 'r', encoding="utf-8-sig") as file:
+    with open('clientes.csv', 'r', encoding="utf-8-sig") as file:
         reader = csv.reader(file)
         header = next(reader)
         data = list(reader)
@@ -190,7 +190,7 @@ def procurar_cliente_contacto():
     procurar_cliente_contacto = simpledialog.askstring("Procurar Cliente", "Insira o Nº Contacto:")
     
     # Read the data from the CSV file
-    with open('D:\Python\Registo Clientes CTk\clientes.csv', 'r', encoding="utf-8-sig") as file:
+    with open('clientes.csv', 'r', encoding="utf-8-sig") as file:
         reader = csv.reader(file)
         header = next(reader)
         data = list(reader)
